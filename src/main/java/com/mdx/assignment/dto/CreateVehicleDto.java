@@ -1,59 +1,30 @@
-package com.mdx.assignment.models;
-
-import jakarta.persistence.*;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+package com.mdx.assignment.dto;
+import jakarta.validation.constraints.NotBlank;
 
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "vehicles")
-// this was required to set the created_at and updated_at automatically
-@EntityListeners(AuditingEntityListener.class)
-public class Vehicle {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(unique = true, nullable = false)
+public class CreateVehicleDto {
+    @NotBlank(message = "plateNumber is required")
     private String plateNumber;
-
     private String manufacturer;
-
     private String model;
-
-    @Column(name = "`year`")
     private Integer year;
-
     private String ownerName;
-
-    @CreatedDate
-    @Column(name = "created_at", nullable = false, updatable = false)
-    private LocalDateTime createdAt;
-
     private String createdBy;
 
-    public Vehicle() {
+    public CreateVehicleDto() {
+
     }
 
-    public Vehicle(String plateNumber, String manufacturer, String model, Integer year, String ownerName, String createdBy) {
+    public CreateVehicleDto(String plateNumber, String manufacturer, String model, Integer year, String ownerName, String createdBy) {
         this.plateNumber = plateNumber;
         this.manufacturer = manufacturer;
         this.model = model;
-
         this.year = year;
         this.ownerName = ownerName;
         this.createdBy = createdBy;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getPlateNumber() {
         return plateNumber;
@@ -93,14 +64,6 @@ public class Vehicle {
 
     public void setOwnerName(String ownerName) {
         this.ownerName = ownerName;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
     }
 
     public String getCreatedBy() {
