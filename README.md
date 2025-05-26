@@ -36,3 +36,8 @@ mvn spring-boot:run
 | `GET`    | `/vehicles/{id}` | Get vehicle by ID    |
 | `PUT`    | `/vehicles/{id}` | Update a vehicle     |
 | `DELETE` | `/vehicles/{id}` | Delete a vehicle     |
+
+📬 Postman Collection
+You can test the API using the following Postman collection:
+
+[🔗 Vehicle API Postman Collection](https://universal-star-702907.postman.co/workspace/noise-app~c7d17754-c815-443c-afeb-635926cafbe4/collection/15142683-e40216cd-bd9a-4f9c-8e1c-e22be65275b6?action=share&creator=15142683&active-environment=15142683-607ba2c4-45f5-4014-8bd7-2222ca1c6357)
